@@ -17,6 +17,14 @@ spec:
       labels:
         app: web
     spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: web
+
       containers:
       - name: httpd
         image: httpd:2.4.53-alpine
