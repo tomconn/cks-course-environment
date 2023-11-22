@@ -9,6 +9,7 @@ metadata:
   name: web-server
   namespace: web
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: web
